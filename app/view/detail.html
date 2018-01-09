@@ -1,0 +1,157 @@
+<!DOCTYPE html>  
+<html>  
+<head>  
+    <meta charset="utf-8" />  
+    <!-- 宽度设置为设备实际宽度，初始化倍数为1，最小倍数为1，最大倍数为1，用户缩放为否 -->  
+    <meta name="viewport" content="width=device-width,inital-scale=1.0,minimum-scale=1.0,maximum-scake=1.0,user-scalable=no" />  
+    <!-- 删除默认的苹果工具栏和菜单栏 -->  
+    <meta name="apple-mobile-web-app-capable" content="yes" />  
+    <!-- 苹果手机顶部为黑色 -->  
+    <meta name="apple-mobile-web-status-bar-style" content="block" />  
+    <!-- 屏蔽浏览器自动识别数字为电话号码 -->  
+    <meta name="fromat-detecition" content="telephone=no" />  
+    <!-- base.css是所有项目都会用到的底层样式 -->  
+    <link rel="stylesheet" type="text/css" href="/public/css/base.css" />
+    <title></title>    
+    <link rel="stylesheet" type="text/css" href="/public/css/iconfont/iconfont.css">
+    <script type="text/javascript">
+        var html = document.getElementsByTagName('html')[0];
+        var pageWidth = html.getBoundingClientRect().width;
+        html.style.fontSize = pageWidth / 10 + 'px';
+    </script>
+</head>  
+<body> 
+    <!-- <div id="head">
+        <i id="fanhui" class="iconfont icon-fanhui"></i>
+        <div class="title"><%= data.name %></div>
+        <i id="fenxiang" class="iconfont icon-fenxiang"></i>
+    </div> -->
+    <div id="content_wrap">
+        <div class="mark">
+            <div class="bg" style="background-image: url(<%= data.imgUrl %>);"></div>
+        </div>
+        <div class="content">
+            <img src= <%= data.imgUrl %> />
+            <div class="detail">
+                <div class="name"><%= data.name[0] %></div>
+                <div class="transname">
+                    <% for(let i=0;i < data.transName.length;i++) { %>
+                        <%= data.transName[i] + ( i < data.transName.length-1 ?' / ' : '') %>
+                    <% } %>
+                </div>
+                <div class="score">
+                    <%= '豆瓣: ' + (data.doubanScore ? data.doubanScore : '暂无豆瓣评分') %>
+                </div>
+                <div class="score">
+                     <%= 'IMDB: ' + (data.imdbScore ? data.imdbScore : '暂无IMDB评分') %>
+                </div>
+                <div class="info">
+                    <% for(let i=0;i < data.types.length;i++) { %>
+                        <%= data.types[i].name + ( i< data.types.length-1?',' : '') %>
+                    <% } %>
+                </div>
+                <div class="info"> 
+                    <% for(let i=0;i < data.country.length;i++) { %>
+                        <%= data.country[i] + ( i< data.country.length-1?',' : '') %>
+                    <% } %>
+                    <%
+                        if(data.country.length > 0) {
+                            ' / '
+                        }
+                    %>
+                    <%= data.time %>
+                </div>
+                <div class="info">
+                    <% for(let i=0;i < data.language.length;i++) { %>
+                        <%= data.language[i] + ( i< data.language.length-1?',' : '') %>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="actors_wrap" class="actors_wrap_zoom_out">
+        <div class="actors_flex_wrap">
+            <ul id="actors" class="actors_zoom_out">
+                <p>主演:</p>
+                <% for(let i=0;i < data.actors.length;i++) { %>
+                    <li><%= data.actors[i]%></li>
+                <% } %>
+            </ul>
+            <div style="margin: 0 0.5rem 0 0.5rem;"></div>
+            <ul id="directors" class="directors_zoom_out">
+                <p>导演:</p>
+                <% for(let i=0;i < data.directors.length;i++) { %>
+                    <li><%= data.directors[i]%></li>
+                <% } %>
+            </ul>
+        </div>
+        
+         <i id="actor_zhankai" class="iconfont icon-jiantouxia"></i>
+    </div>
+
+    <div id="profile_wrap" class="profile_wrap_zoom_out">
+        <p id="profile" class="zoom_out"><%= data.profile %></p>
+        <i id="zhankai" class="iconfont icon-jiantouxia"></i>
+    </div>
+
+    
+    <div id="href_wrap">
+        <p>下载地址:</p>
+        <ul id="href">
+            <% for(let i=0;i < data.hrefs.length;i++) { %>
+                    <li><%= data.hrefs[i]%></li>
+            <% } %>
+        </ul>
+    </div>
+
+    <script type="text/javascript">
+       /* let fanhui = document.getElementById('fanhui')
+        let fenxiang = document.getElementById('fenxiang')*/
+        let zhankai = document.getElementById('zhankai')
+        let profile_wrap = document.getElementById('profile_wrap')
+        let profile = document.getElementById('profile')
+
+        let actor_zhankai = document.getElementById('actor_zhankai')
+        let actors_wrap = document.getElementById('actors_wrap')
+        let actors = document.getElementById('actors')
+        let directors = document.getElementById('directors')
+        
+
+        let isActorZhankai = false
+    
+        let isZhankai = false
+        
+        /*fanhui.onclick = () => {
+             alert('close')
+        }
+
+        fenxiang.onclick = () => {
+            alert('fenxiang')
+        }*/
+
+        zhankai.onclick = () => {
+            profile_wrap.className = isZhankai ? 'profile_wrap_zoom_out' : 'profile_wrap_zoom_in'
+            profile.className = isZhankai ? 'zoom_out' : 'zoom_in' 
+            isZhankai = !isZhankai
+            if(isZhankai) {
+                zhankai.setAttribute('class', 'iconfont icon-jiantoushang')
+             } else {
+                zhankai.setAttribute('class', 'iconfont icon-jiantouxia')
+             }  
+        }
+
+        actor_zhankai.onclick = () => {
+            actors_wrap.className = isActorZhankai ? 'actors_wrap_zoom_out' : 'actors_wrap_zoom_in'
+            actors.className = isActorZhankai ? 'actors_zoom_out' : 'actors_zoom_in' 
+            directors.className = isActorZhankai ? 'directors_zoom_out' : 'directors_zoom_in'
+            isActorZhankai = !isActorZhankai
+            if(isActorZhankai) {
+                actor_zhankai.setAttribute('class', 'iconfont icon-jiantoushang')
+             } else {
+                actor_zhankai.setAttribute('class', 'iconfont icon-jiantouxia')
+             }  
+        }
+    </script>
+</body>  
+</html>

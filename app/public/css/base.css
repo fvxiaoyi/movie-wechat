@@ -1,0 +1,242 @@
+body {
+	padding: 0;
+	margin: 0;
+	background-color: #f4f4f4;
+	font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+
+}
+p, i,ul, li {
+	padding: 0;
+	margin: 0;
+	font-style:normal;
+	list-style: none;
+}
+
+#head {
+	display: flex;
+	height: 1.2rem;
+	width: 100%;
+	background-color: #fff;
+	line-height: 1.2rem;
+	font-size: 0.6rem;
+}
+
+#head .icon-fanhui, #head .icon-fenxiang {
+	color: #06c1ae;
+	width: 0.6rem;
+	height: 0.6rem;
+	font-size: 0.6rem;
+	font-weight: bold;
+}
+
+#head .title {
+	flex: 1;
+	text-align:center;
+	font-weight: bold;
+}
+
+#head .icon-fanhui {
+	margin-left: 0.5rem;
+}
+
+#head .icon-fenxiang {
+	margin-right: 0.5rem;
+}
+
+#content_wrap {
+	height: 6rem;
+	background-color: #fff;
+	position: relative;
+}
+
+#content_wrap .detail div {
+	overflow: hidden;
+}
+
+#content_wrap .bg {
+	width: 100%;
+	height: 90%;
+	margin-top: 3%;
+	display:inline-block;
+	background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    -webkit-filter: blur(15px);
+    -moz-filter: blur(15px);
+    -o-filter: blur(15px);
+    -ms-filter: blur(15px);
+    filter: blur(15px);
+}
+
+#content_wrap .mark {
+	background-color: #000;
+	filter:alpha(opacity=98);  /* ie 有效*/
+	-moz-opacity:0.98; /* Firefox  有效*/
+	opacity: 0.98; /* 通用，其他浏览器  有效*/
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	z-index: 0;
+}
+
+#content_wrap .content {
+	display: flex;
+	padding: 0.5rem;
+	height: 5.0rem;
+	position: relative;
+	z-index: 1;
+}
+
+#content_wrap .content img {
+	height: 4.88rem;
+	width: 3.58rem;
+	border: 0.06rem #fff solid;
+}
+
+#content_wrap .content .detail {
+	height: 5rem;
+	width: 100%;
+	margin-left: 0.4rem;
+	flex: 1;
+}
+
+#content_wrap .detail div {
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+#content_wrap .name {
+	font-size: 0.7rem;
+	color: #fff;
+}
+
+#content_wrap .detail .transname {
+	font-size: 0.3rem;
+	color: #fff;
+}
+
+#content_wrap .score {
+	font-size: 0.3rem;
+	color: #ffc600;
+	font-weight: bold;
+}
+
+#content_wrap .info {
+	font-size: 0.4rem;
+	color: #fff;
+	font-weight: bold;
+}
+
+#profile_wrap {
+	background-color: #fff;
+	padding: 0.5rem 0.4rem 0 0.4rem;
+}
+
+.profile_wrap_zoom_out {
+	height: 3.3rem;
+}
+
+.profile_wrap_zoom_in {
+	height: auto;
+}
+
+#profile {
+	font-size: 0.4rem;
+	color: #858585;
+	display: block;
+}
+
+#profile_wrap .zoom_out {
+	height: 2.5rem;
+	overflow: hidden;
+}
+
+#profile_wrap .zoom_in {
+	height: auto;
+}
+
+#actors_wrap i, #profile_wrap i {
+	display: block;
+	height: 0.8rem;
+	line-height: 0.8rem;
+	text-align: center;
+	font-size: 0.5rem;
+	color: #858585;
+}
+
+#actors_wrap {
+	margin: 0 0 0.32rem 0;
+	padding: 0.5rem 0.4rem 0 0.4rem;
+	background-color: #fff;
+}
+
+#actors_wrap .actors_flex_wrap {
+	display: flex;
+}
+
+#actors, #directors {
+	overflow: hidden;
+	flex : 1;
+}
+
+.actors_wrap_zoom_in {
+	height: auto;
+}
+
+.actors_wrap_zoom_out {
+	height: 3rem;
+}
+
+.actors_zoom_in, .directors_zoom_in {
+	height: auto;
+}
+
+.actors_zoom_out, .directors_zoom_out {
+	height: 2.2rem;
+}
+
+
+#directors li, #actors li {
+	font-size: 0.4rem;
+	color: #858585;
+}
+
+#actors p, #directors p {
+	font-size: 0.5rem;
+	display: block;
+	background-color: #ff9900;
+	width: 4rem;
+	text-align: center;
+	color: #fff;
+	height: 0.8rem;
+	border-radius: 0.2rem;
+	margin-bottom: 0.2rem;
+	line-height: 0.89rem;
+}
+
+#href_wrap {
+	height: auto;
+	margin-top: 0.32rem;
+	margin-bottom: 0.32rem;
+	background-color: #fff;
+	padding: 0.2rem 0.5rem 0.2rem 0.5rem;
+}
+
+#href_wrap p {
+	text-align: center;
+	width: 70%;
+	font-size: 0.5rem;
+	display: block;
+	background-color: #06c1ae;
+	text-align: center;
+	color: #fff;
+	height: 0.8rem;
+	border-radius: 0.2rem;
+	margin: 0 auto 0.2rem auto;
+	line-height: 0.89rem;
+}
+
+#href li{
+	font-size: 0.4rem;
+	color: #858585;
+}
