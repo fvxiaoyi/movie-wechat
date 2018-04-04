@@ -3,15 +3,15 @@ module.exports = app => {
     Schema = mongoose.Schema
 
   const MovieSchema = new Schema({
-	name : [{type: String}],
-	transName : [{type: String}],
-	country  : [{type: String}],
+	names : [{type: String}],
+	transNames : [{type: String}],
+	countrys  : [{type: String}],
 	year : String,
 	types : [{
 		type : Schema.Types.ObjectId,
 		ref : 'MovieType'
 	}],
-	language : [{type: String}],
+	languages : [{type: String}],
 	imdbScore : String,
 	doubanScore : String,
 	time : String,
@@ -19,7 +19,8 @@ module.exports = app => {
 	actors : [{type: String}],
 	profile : String,
 	hrefs : [{type: String}],
-	displayImg : [{type : Schema.Types.ObjectId}],
+	displayImg : {type : Schema.Types.ObjectId},
+	descImg : {type : Schema.Types.ObjectId},
 	createTime: { type: Date, default: Date.now },
 	modifyTime: { type: Date },
 	fileIndex: String

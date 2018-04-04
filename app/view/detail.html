@@ -33,10 +33,10 @@
         <div class="content">
             <img src= <%= data.imgUrl %> />
             <div class="detail">
-                <div class="name"><%= data.name[0] %></div>
+                <div class="name"><%= data.names[0] %></div>
                 <div class="transname">
-                    <% for(let i=0;i < data.transName.length;i++) { %>
-                        <%= data.transName[i] + ( i < data.transName.length-1 ?' / ' : '') %>
+                    <% for(let i=0;i < data.transNames.length;i++) { %>
+                        <%= data.transNames[i] + ( i < data.transNames.length-1 ?' / ' : '') %>
                     <% } %>
                 </div>
                 <div class="score">
@@ -51,19 +51,19 @@
                     <% } %>
                 </div>
                 <div class="info"> 
-                    <% for(let i=0;i < data.country.length;i++) { %>
-                        <%= data.country[i] + ( i< data.country.length-1?',' : '') %>
+                    <% for(let i=0;i < data.countrys.length;i++) { %>
+                        <%= data.countrys[i] + ( i< data.countrys.length-1?',' : '') %>
                     <% } %>
                     <%
-                        if(data.country.length > 0) {
+                        if(data.countrys.length > 0) {
                             ' / '
                         }
                     %>
                     <%= data.time %>
                 </div>
                 <div class="info">
-                    <% for(let i=0;i < data.language.length;i++) { %>
-                        <%= data.language[i] + ( i< data.language.length-1?',' : '') %>
+                    <% for(let i=0;i < data.languages.length;i++) { %>
+                        <%= data.languages[i] + ( i< data.languages.length-1?',' : '') %>
                     <% } %>
                 </div>
             </div>

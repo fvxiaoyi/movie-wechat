@@ -1,9 +1,5 @@
 exports.mongoose = {
-  url : 'mongodb://@localhost:27017/MOVIE',
-  options: {
-    user : 'root',
-    pass : 'root'
-  }
+  url : 'mongodb://@localhost:27017/MOVIE'
 }
 
 exports.wechat = {
@@ -12,9 +8,8 @@ exports.wechat = {
 
 exports.cluster = {
   listen: {
-    port: 80,
-    hostname: '127.0.0.1'
+    port: 80
   }
 }
 
-exports.baseUrl = 'http://et58f5.natappfree.cc'
+exports.baseUrl = 'http://65frj6.natappfree.cc'

@@ -11,16 +11,16 @@ class MovieService extends Service {
 	if(param.MsgType === 'text' && (content = param.Content)) {
 		let condition = eval(`/${content}/`)
 		let result = await this.ctx.model.Movie.find({
-			'$or' : [{'name' : condition }, {'transName' : condition }]
+			'$or' : [{'names' : condition }, {'transNames' : condition }]
 		})
 		.populate('types', 'name')
 		.limit(8)
   		.sort({ year: -1 })
   		.select({ 
   				_id : 1,
-  				name : 1,
-  				transName : 1,
-  				country : 1,
+  				names : 1,
+  				transNames : 1,
+  				countrys : 1,
   				year : 1,
   				types : 1,
   				imdbScore : 1,
@@ -36,8 +36,8 @@ class MovieService extends Service {
 			for(let r of result) {
 				let item = {},
 				  baseUrl = this.config.baseUrl
-				let displayImg = r.displayImg.length > 0 ? `${baseUrl}/store/gain/${r.displayImg[0]}` : `${baseUrl}/public/noimg.jpg`
-				item.Title = r.name[0]
+				let displayImg = r.displayImg ? `${baseUrl}/store/gain/${r.displayImg}` : `${baseUrl}/public/noimg.jpg`
+				item.Title = r.names[0]
 				item.Description = r.profile ? r.profile.substring(0, 60) + '... [点击查看下载地址]' : ''
 				item.PicUrl = displayImg
 				item.Url = `${baseUrl}/movie/get/${r._id}`
@@ -63,11 +63,9 @@ class MovieService extends Service {
 		let imgUrl,
 		  baseUrl = this.config.baseUrl
 		if(find.displayImg) {
-		  if(find.displayImg.length === 0) {
+			imgUrl = `${baseUrl}/store/gain/${find.displayImg}`
+		} else {
 			imgUrl = `${baseUrl}/public/noimg.jpg`
-		  } else {
-			imgUrl = `${baseUrl}/store/gain/${find.displayImg[0]}`
-		  }
 		}
 		let data = find.toObject()
 		data.imgUrl = imgUrl

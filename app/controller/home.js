@@ -4,7 +4,7 @@ const Controller = require('egg').Controller;
 
 class HomeController extends Controller {
   async index() {
-  	this.ctx.redirect('/public/noimg.jpg')
+  	await this.ctx.render('index', {})
   }
 
   async index2() {
