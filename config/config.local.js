@@ -1,5 +1,9 @@
 exports.mongoose = {
-  url : 'mongodb://@localhost:27017/MOVIE'
+  url: 'mongodb://@47.93.0.63:27017/MOVIE',
+  options: {
+    user : 'sa',
+    pass : 'suyibin..'
+  }
 }
 
 exports.wechat = {
